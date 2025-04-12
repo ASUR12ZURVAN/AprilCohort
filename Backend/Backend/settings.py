@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'SpeechText',
     'channels',
     'storage',
-    'rest_framework'
+    'rest_framework',
+    'myapp'
 ]
 
 MIDDLEWARE = [
