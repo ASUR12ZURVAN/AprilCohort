@@ -1,16 +1,14 @@
 import os
-from django.core.asgi import get_asgi_application
+import django
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-import SpeechText.routing
+from SpeechText.routing import websocket_urlpatterns  # Adjust if needed
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Backend.settings')
+django.setup()
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
-        URLRouter(
-            SpeechText.routing.websocket_urlpatterns
-        )
+        URLRouter(websocket_urlpatterns)
     ),
 })
