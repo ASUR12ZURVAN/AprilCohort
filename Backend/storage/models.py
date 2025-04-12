@@ -16,3 +16,21 @@ class call(models.Model):
 
     def __str__(self):
         return self.caller_number
+    
+class Ticket(models.Model):
+    title = models.CharField(max_length=300)
+    description = models.TextField()
+    created_by = models.CharField(max_length=100)
+    resolved = models.BooleanField(default=  False)
+
+    def __str__(self):
+        return Ticket.title
+
+class Lead(models.Model):
+    Name = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+    email = models.EmailField()
+    company_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return Lead.Name
