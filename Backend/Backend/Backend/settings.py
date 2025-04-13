@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pba4pin$4a_89uibhb^h33chxeb1s8w-cav8o&z_=2+(a3@%r=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*']
 
 
 # Application definition
@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'storage',
     'rest_framework',
     'myapp',
-    'keyapp',
-    'transcript',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +55,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = 'Backend.urls'
 
@@ -129,5 +132,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-GROQ_API_KEY = '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' 
- 
