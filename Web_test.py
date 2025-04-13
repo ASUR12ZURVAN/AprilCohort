@@ -3,11 +3,13 @@ import websockets
 import json
 
 async def test_sentiment_ws():
-    uri = "ws://localhost:8000/ws/sentiment/"  # Make sure your server is running
+    uri = "wss://aprilcohort.onrender.com/ws/sentiment/"  # Make sure your server is running
 
     async with websockets.connect(uri) as websocket:
         # Send transcript data
-        transcript = """My boss yelled on me. Im really angry rn. """
+        transcript = """My boss yelled on me. 
+        Im really angry rn.
+        But atleast i learnt something new """
         await websocket.send(json.dumps({
             "transcript": transcript
         }))

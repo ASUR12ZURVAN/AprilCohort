@@ -22,5 +22,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("myapp/", include("myapp.urls")),
     path("", include("storage.urls")),
+<<<<<<< HEAD
     path('api/', include('keyapp.urls')),
+=======
+>>>>>>> 6dde96900f5f60f75a1186e9943aeaafae39c3c8
 ]
