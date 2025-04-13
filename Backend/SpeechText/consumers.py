@@ -41,12 +41,12 @@ class SentimentConsumer(AsyncWebsocketConsumer):
             sentiment_results.append({
                 "turn": turn,
                 "sentiment": sentiment,
-                "score": round(score, 2)
+                "score": signed_score
             })
         
         avg_score = mean(scores)
 
         await self.send(text_data=json.dumps({
             "caller_sentiments": sentiment_results,
-            "avg_sentiment": round(avg_score, 2)
+            "avg_sentiment": avg_score
         }))
